@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beijing Gourmet — Authentic Beijing Cuisine</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Beijing Gourmet</a>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-bg">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-tag">Since 2012</p>
+      <h1 class="hero-title">Beijing Gourmet</h1>
+      <p class="hero-subtitle">Authentic flavors from the heart of China's capital, served with tradition and precision.</p>
+      <div class="hero-cta">
+        <a href="#menu" class="btn btn-primary">Explore Our Menu</a>
+        <a href="#contact" class="btn btn-secondary">Book a Table</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="section-title">Our Story</h2>
+          <p>Beijing Gourmet brings the rich culinary heritage of China's capital to your table. For over a decade, we've been crafting dishes that honor centuries-old techniques while embracing the fresh, local ingredients of our community.</p>
+          <p>Every dish tells a story — from the precise artistry of our Peking duck, hand-carved daily, to the slow-simmered broths that form the foundation of northern Chinese cooking. We source our ingredients thoughtfully, partnering with local farms and trusted importers to bring you an experience that is both authentic and immediate.</p>
+          <p>Whether you're celebrating a special occasion or simply craving the deep, complex flavors of Beijing, there's a place for you at our table.</p>
+        </div>
+        <div class="about-image">
+          <div class="about-image-placeholder">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="300" fill="#1a1a2e"/>
+              <circle cx="200" cy="120" r="60" fill="#c9a96e" opacity="0.3"/>
+              <circle cx="200" cy="120" r="35" fill="#e8c97a" opacity="0.5"/>
+              <circle cx="200" cy="120" r="18" fill="#f5deb3" opacity="0.7"/>
+              <path d="M100 250 Q200 200 300 250 L300 300 L100 300 Z" fill="#2d2d44"/>
+              <circle cx="140" cy="100" r="20" fill="#c9a96e" opacity="0.2"/>
+              <circle cx="280" cy="90" r="25" fill="#c9a96e" opacity="0.2"/>
+              <circle cx="200" cy="70" r="15" fill="#c9a96e" opacity="0.2"/>
+            </svg>
+          </div>
+          <p class="image-caption">Our signature Peking Duck — hand-carved to order</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialties Banner -->
+  <section class="specialties">
+    <div class="container">
+      <h2 class="section-title centered">What We're Known For</h2>
+      <div class="specialties-grid">
+        <div class="specialty-card">
+          <div class="specialty-icon">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="30" cy="35" rx="20" ry="15" fill="#c97a3a"/>
+              <path d="M10 30 Q30 15 50 30" stroke="#a0522d" stroke-width="2" fill="none"/>
+              <circle cx="30" cy="32" r="8" fill="#f5deb3"/>
+              <circle cx="30" cy="32" r="4" fill="#e8a040"/>
+            </svg>
+          </div>
+          <h3>Peking Duck</h3>
+          <p>Hand-carved to order, served with thin pancakes, hoisin sauce, and fresh scallions. A Beijing classic executed with precision.</p>
+        </div>
+        <div class="specialty-card">
+          <div class="specialty-icon">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="30" cy="35" rx="18" ry="22" fill="#8b4513"/>
+              <ellipse cx="30" cy="30" rx="15" ry="10" fill="#d2691e"/>
+              <path d="M15 25 Q30 15 45 25" stroke="#5c3317" stroke-width="1.5" fill="none"/>
+              <circle cx="25" cy="30" r="2" fill="#2d1810"/>
+              <circle cx="35" cy="30" r="2" fill="#2d1810"/>
+            </svg>
+          </div>
+          <h3>Xiao Long Bao</h3>
+          <p>Steamed soup dumplings with a delicate, paper-thin wrapper. Each bite releases a rich, savory broth — a Shanghai classic on our menu.</p>
+        </div>
+        <div class="specialty-card">
+          <div class="specialty-icon">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="30" r="20" fill="#c9a96e"/>
+              <circle cx="30" cy="30" r="14" fill="#e8c97a"/>
+              <circle cx="30" cy="30" r="8" fill="#f5deb3"/>
+              <circle cx="30" cy="30" r="3" fill="#a0522d"/>
+              <path d="M30 10 L30 14 M30 46 L30 50 M10 30 L14 30 M46 30 L50 30" stroke="#8b6914" stroke-width="1.5" opacity="0.4"/>
+            </svg>
+          </div>
+          <h3>Dim Sum Selection</h3>
+          <p>A rotating assortment of steamed, pan-fried, and baked dumplings and buns — prepared fresh throughout the day by our dim sum chefs.</p>
+        </div>
+        <div class="specialty-card">
+          <div class="specialty-icon">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 45 Q30 20 50 45 Q50 50 45 50 L15 50 Q10 50 10 45 Z" fill="#f5deb3"/>
+              <ellipse cx="30" cy="35" rx="12" ry="8" fill="#8b4513"/>
+              <ellipse cx="30" cy="33" rx="8" ry="4" fill="#a0522d"/>
+              <path d="M20 28 Q30 22 40 28" stroke="#5c3317" stroke-width="1" fill="none"/>
+            </svg>
+          </div>
+          <h3>Noodles &amp; Rice</h3>
+          <p>Hand-pulled noodles, dan dan noodles, Yangzhou fried rice, and scallion pancakes — the comforting staples of northern Chinese cuisine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="section menu-section">
+    <div class="container">
+      <h2 class="section-title">Our Menu</h2>
+      <p class="section-subtitle">A selection of our most beloved dishes. Seasonal items rotate throughout the year — ask your server for today's specials.</p>
+
+      <div class="menu-tabs">
+        <button class="menu-tab active" data-category="starters">Starters</button>
+        <button class="menu-tab" data-category="noodles-rice">Noodles &amp; Rice</button>
+        <button class="menu-tab" data-category="main-courses">Main Courses</button>
+        <button class="menu-tab" data-category="dim-sum">Dim Sum</button>
+        <button class="menu-tab" data-category="desserts">Desserts</button>
+      </div>
+
+      <div class="menu-content">
+        <!-- Starters -->
+        <div class="menu-category active" id="menu-starters">
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Spring Rolls (6 pcs)</h3>
+                <span class="item-price">$12</span>
+              </div>
+              <p class="item-desc">Crispy golden spring rolls filled with glass noodles, shredded carrots, and wood-ear mushrooms. Served with a sweet chili dipping sauce.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Edamame with Sea Salt</h3>
+                <span class="item-price">$8</span>
+              </div>
+              <p class="item-desc">Steamed young soybeans, lightly salted. A simple, classic beginning — naturally gluten-free.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Cucumber &amp; Wood Ears</h3>
+                <span class="item-price">$10</span>
+              </div>
+              <p class="item-desc">Smashed cucumber with black fungus, chili oil, garlic, and vinegar. Refreshing and crunchy — a beloved northern appetizer.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Scallion Pancakes (2 pcs)</h3>
+                <span class="item-price">$10</span>
+              </div>
+              <p class="item-desc">Crispy, layered pancakes made from dough folded with scallions and oil. Pan-fried to a golden finish.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Cold Noodles with Sesame</h3>
+                <span class="item-price">$13</span>
+              </div>
+              <p class="item-desc">Chewy wheat noodles tossed with sesame paste, soy sauce, chili oil, garlic, and crushed peanuts. Served cold — a summer staple.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Noodles & Rice -->
+        <div class="menu-category" id="menu-noodles-rice" style="display:none;">
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Dan Dan Noodles</h3>
+                <span class="item-price">$16</span>
+              </div>
+              <p class="item-desc">Hand-pulled wheat noodles in a rich, spicy Sichuan broth with ground pork, preserved vegetables, bamboo shoots, and a dusting of Sichuan peppercorn.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Hand-Pulled Noodles in Broth</h3>
+                <span class="item-price">$17</span>
+              </div>
+              <p class="item-desc">Freshly pulled noodles served in a deeply savory chicken and pork bone broth with scallions and a soft-boiled egg. Simple, profound, and warming.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Yangzhou Fried Rice</h3>
+                <span class="item-price">$14</span>
+              </div>
+              <p class="item-desc">Classic fried rice with shrimp, ham, scrambled egg, peas, and carrots — wok-hei and all.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Sauce Noodles with Tomato &amp; Egg</h3>
+                <span class="item-price">$13</span>
+              </div>
+              <p class="item-desc"> comfort food at its finest: tender noodles in a bright tomato and scrambled egg sauce, green onions scattered on top.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Courses -->
+        <div class="menu-category" id="menu-main-courses" style="display:none;">
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Peking Duck</h3>
+                <span class="item-price">$48 / whole</span>
+                <span class="item-price-small">$26 half</span>
+              </div>
+              <p class="item-desc">Our signature dish. Duck is air-dried, roasted until the skin crackles, and carved tableside. Served with thin pancakes, hoisin sauce, julienned scallions, and cucumber. A full experience.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Kung Pao Chicken</h3>
+                <span class="item-price">$22</span>
+              </div>
+              <p class="item-desc">Tender chicken wok-fried with peanuts, dried chilies, scallions, and a lively Sichuan sauce — numbing and spicy.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Mapo Tofu</h3>
+                <span class="item-price">$18</span>
+              </div>
+              <p class="item-desc">Silken tofu in a bold, spicy chili and fermented-bean sauce, topped with ground pork and a generous dusting of Sichuan peppercorn. Served with steamed rice.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Braised Beef in Soy Sauce</h3>
+                <span class="item-price">$24</span>
+              </div>
+              <p class="item-desc">Beef brisket slowly braised with soy sauce, rock sugar, star anise, and ginger until melt-in-your-mouth tender. Served over steamed rice.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Sweet &amp; Sour Pork</h3>
+                <span class="item-price">$19</span>
+              </div>
+              <p class="item-desc">Crispy fried pork tossed with a tangy, lightly sweetened sauce and an orderly parade of bell peppers, onions, and pineapple. A crowd favorite.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Mongolian Lamb with Cumin</h3>
+                <span class="item-price">$26</span>
+              </div>
+              <p class="item-desc">Thinly sliced lamb stir-fried with cumin, chili flakes, scallions, and garlic — a Northwest Chinese classic with vibrant, warming flavors.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dim Sum -->
+        <div class="menu-category" id="menu-dim-sum" style="display:none;">
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Xiao Long Bao (8 pcs)</h3>
+                <span class="item-price">$14</span>
+              </div>
+              <p class="item-desc">Steamed soup dumplings filled with pork, crab, and a rich broth that releases with every bite. Eat carefully — and joyfully.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Steamed Shrimp Dumplings (8 pcs)</h3>
+                <span class="item-price">$15</span>
+              </div>
+              <p class="item-desc">Har gow — translucent wrappers holding a savory shrimp filling. Delicate, chewy, and a dim sum essential.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Pan-Fried Pork Buns (6 pcs)</h3>
+                <span class="item-price">$13</span>
+              </div>
+              <p class="item-desc">Guotie — semi-crisp on the bottom, soft on top, stuffed with seasoned pork and a touch of sweetness.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Eggplant in Garlic Sauce</h3>
+                <span class="item-price">$16</span>
+              </div>
+              <p class="item-desc">Crispy-fried eggplant tossed in a savory-spicy garlic sauce with fermented beans, scallions, and a hint of sugar.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Steamed Chicken with Mushrooms</h3>
+                <span class="item-price">$18</span>
+              </div>
+              <p class="item-desc">Tender chicken thigh steamed with shiitake mushrooms, ginger, and scallions in a light soy-based broth.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desserts -->
+        <div class="menu-category" id="menu-desserts" style="display:none;">
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Sesame Balls (4 pcs)</h3>
+                <span class="item-price">$9</span>
+              </div>
+              <p class="item-desc">Crisp-on-the-outside, chewy-inside glutinous rice balls filled with sweet red bean paste and coated in toasted sesame seeds.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Almond Tofu</h3>
+                <span class="item-price">$10</span>
+              </div>
+              <p class="item-desc">A silky, jellied dessert made from almond milk, sugar, and gelatin — topped with a warm sugar syrup that you crack with your spoon. Smooth and sweet.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Fried Banana in Honey</h3>
+                <span class="item-price">$9</span>
+              </div>
+              <p class="item-desc">Warm, caramelized banana slices dusted with cinnamon and drizzled with honey. Simple, comforting, and satisfying.</p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Mango Pudding</h3>
+                <span class="item-price">$10</span>
+              </div>
+              <p class="item-desc">Silky, cool mango pudding — naturally sweet and refreshing. A light finish to a rich meal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="section gallery">
+    <div class="container">
+      <h2 class="section-title centered">A Taste of Our Kitchen</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="gallery-placeholder">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="300" fill="#2d2d44"/>
+              <ellipse cx="200" cy="160" rx="80" ry="50" fill="#c97a3a" opacity="0.4"/>
+              <ellipse cx="200" cy="160" rx="50" ry="30" fill="#e8a040" opacity="0.3"/>
+              <circle cx="200" cy="150" r="15" fill="#f5deb3" opacity="0.5"/>
+              <path d="M120 220 Q200 200 280 220 L280 300 L120 300 Z" fill="#1a1a2e"/>
+            </svg>
+          </div>
+          <p class="gallery-caption">Peking Duck — the centerpiece of our menu</p>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="300" fill="#1a1a2e"/>
+              <circle cx="150" cy="120" r="40" fill="#c9a96e" opacity="0.3"/>
+              <circle cx="150" cy="120" r="22" fill="#e8c97a" opacity="0.4"/>
+              <circle cx="150" cy="120" r="10" fill="#f5deb3" opacity="0.5"/>
+              <circle cx="250" cy="140" r="35" fill="#c9a96e" opacity="0.3"/>
+              <circle cx="250" cy="140" r="18" fill="#e8c97a" opacity="0.4"/>
+              <circle cx="250" cy="140" r="8" fill="#f5deb3" opacity="0.5"/>
+              <path d="M80 250 Q200 220 320 250 L320 300 L80 300 Z" fill="#2d2d44"/>
+            </svg>
+          </div>
+          <p class="gallery-caption">Dim sum spread — steamed to order</p>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="300" fill="#2d2d44"/>
+              <path d="M60 200 Q100 80 200 100 Q300 120 340 200 L340 250 L60 250 Z" fill="#8b4513" opacity="0.5"/>
+              <ellipse cx="200" cy="160" rx="70" ry="35" fill="#d2691e" opacity="0.4"/>
+              <ellipse cx="200" cy="155" rx="50" ry="20" fill="#f5deb3" opacity="0.3"/>
+              <path d="M120 210 Q200 200 280 210" stroke="#a0522d" stroke-width="2" fill="none" opacity="0.5"/>
+            </svg>
+          </div>
+          <p class="gallery-caption">Mapo Tofu — silken, spicy, unforgettable</p>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="300" fill="#1a1a2e"/>
+              <rect x="80" y="100" width="240" height="140" rx="8" fill="#3d3d5c"/>
+              <rect x="90" y="110" width="220" height="120" rx="4" fill="#f5deb3" opacity="0.2"/>
+              <circle cx="150" cy="155" r="20" fill="#c97a3a" opacity="0.5"/>
+              <circle cx="150" cy="155" r="10" fill="#f5deb3" opacity="0.4"/>
+              <circle cx="230" cy="160" r="22" fill="#8b4513" opacity="0.4"/>
+              <circle cx="230" cy="160" r="12" fill="#d2691e" opacity="0.3"/>
+              <circle cx="200" cy="140" r="16" fill="#c9a96e" opacity="0.4"/>
+            </svg>
+          </div>
+          <p class="gallery-caption">Our dining room — warm, inviting, ready for you</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Reservation Section -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2 class="section-title">Visit Us</h2>
+          <p class="contact-intro">We'd love to welcome you. Come by for a meal, browse our menu, or reach out to reserve a table for a special occasion.</p>
+
+          <div class="contact-details">
+            <div class="detail-block">
+              <div class="detail-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Address</h4>
+                <p>142 Gourmet Street<br>Beijing, China 100001</p>
+              </div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.905.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.905.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Phone</h4>
+                <p>+86 10 1234 5678</p>
+                <p>reservations@beijinggourmet.com</p>
+              </div>
+            </div>
+            <div class="detail-block">
+              <div class="detail-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12,6 12,12 16,14"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Hours</h4>
+                <p>Mon–Fri: 11:00 AM – 10:00 PM<br>Sat–Sun: 10:00 AM – 11:00 PM</p>
+                <p class="detail-note">Closed on major Chinese holidays</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="WeChat">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 1c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm3 6h-6v2h6v-2zm0-8h-6v2h6V5z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <h3 class="form-title">Reserve a Table</h3>
+          <form class="reservation-form" action="#" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="e.g. Alex Chen" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+86 10 1234 5678">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+              </div>
+              <div class="form-group">
+                <label for="time">Time</label>
+                <input type="time" id="time" name="time" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="guests">Number of Guests</label>
+                <select id="guests" name="guests" required>
+                  <option value="" disabled selected>Select</option>
+                  <option value="1">1 Guest</option>
+                  <option value="2">2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="5">5 Guests</option>
+                  <option value="6">6 Guests</option>
+                  <option value="7">7+ (call us)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="notes">Special Requests</label>
+                <input type="text" id="notes" name="notes" placeholder="Allergies, celebration, etc.">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Send Reservation</button>
+          </form>
+          <p class="form-note">We'll confirm your reservation within 2 hours during business hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">Beijing Gourmet</a>
+          <p>Authentic Beijing cuisine, crafted with care and served with warmth.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#contact">Reservations</a></li>
+            <li><a href="#">Catering</a></li>
+            <li><a href="#">Private Events</a></li>
+            <li><a href="#">Gift Cards</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h4>Stay Updated</h4>
+          <p>Get seasonal menu updates and event invites.</p>
+          <form class="newsletter-form" action="#" method="POST">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Beijing Gourmet. All rights reserved.</p>
+        <p>Made with care in Beijing.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
