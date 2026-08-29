@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beijing Gourmet — All You Can Eat Chinese Buffet with Sushi and Mongolian Grill</title>
-  <meta name="description" content="Family-friendly buffet restaurant serving delicious food in Tulsa for over 25 years. Chinese buffet, sushi, and Mongolian Grill.">
+  <title>Location &amp; Hours — Beijing Gourmet</title>
   <meta name="theme-color" content="#ffb90f">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +13,6 @@
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="index.html" class="logo">
@@ -25,8 +23,8 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="location.html">Location &amp; Hours</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="location.html" class="active">Location &amp; Hours</a></li>
         <li><a href="contact.html">Contact Us</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="prices.html">Prices</a></li>
@@ -35,71 +33,45 @@
     </div>
   </nav>
 
-  <!-- ==============================
-       HOME PAGE
-       ============================== -->
-  <main class="page-home">
+  <main class="page-location">
+    <div class="container">
+      <h2 class="page-title">Location &amp; Hours</h2>
 
-    <!-- Hero Banner -->
-    <div class="hero">
-      <div class="hero-bg">
-        <img src="hero-bg.jpg" alt="Beijing Gourmet dining room" class="hero-img">
-        <div class="hero-overlay"></div>
-      </div>
-      <div class="hero-content">
-        <h1 class="hero-title">
-          All you can eat Chinese buffet with <span>Sushi</span> and Mongolian Grill
-        </h1>
-        <p class="hero-text">
-          We are a kid-friendly, family-run buffet restaurant serving delicious food in Tulsa for over 25 years. We offer a wide variety of dishes. Come enjoy our fresh, flavorful food and friendly service in a warm and inviting atmosphere.
-        </p>
-        <a href="tel:9182978895" class="btn-hero">Call us now</a>
+      <div class="location-grid">
+        <div class="location-map-wrap">
+          <div class="map-container" id="map"></div>
+          <p class="map-note">8228 East 61st Street, Tulsa, OK 74133</p>
+        </div>
+
+        <div class="location-details">
+          <div class="hours-block">
+            <h3 class="hours-heading">Hours</h3>
+            <dl class="hours-list">
+              <div class="hours-row"><dt>Monday</dt><dd>9:00 AM – 5:00 PM</dd></div>
+              <div class="hours-row"><dt>Tuesday</dt><dd>9:00 AM – 5:00 PM</dd></div>
+              <div class="hours-row"><dt>Wednesday</dt><dd>9:00 AM – 5:00 PM</dd></div>
+              <div class="hours-row"><dt>Thursday</dt><dd>9:00 AM – 5:00 PM</dd></div>
+              <div class="hours-row"><dt>Friday</dt><dd>9:00 AM – 5:00 PM (dinner until 9:00 PM)</dd></div>
+              <div class="hours-row"><dt>Saturday</dt><dd>9:00 AM – 5:00 PM (dinner until 9:00 PM)</dd></div>
+              <div class="hours-row"><dt>Sunday</dt><dd>Closed</dd></div>
+            </dl>
+            <p class="hours-note">We are open every day from Monday to Saturday (including Christmas Day and New Year's), except for Thanksgiving Day!</p>
+            <p class="hours-note">Dinner hours extended until 9:00 PM on Friday and Saturday. Kitchen, sushi bar, and Mongolian Grill close 30 minutes before closing time.</p>
+          </div>
+
+          <div class="contact-info-block">
+            <h3 class="contact-heading">Get in touch</h3>
+            <p class="contact-address">8228 East 61st Street<br>Tulsa, OK 74133</p>
+            <a href="tel:9182978895" class="contact-phone">(918) 297-8895</a>
+            <a href="mailto:beijinggourmettulsa@gmail.com" class="contact-email">beijinggourmettulsa@gmail.com</a>
+          </div>
+
+          <a href="tel:9182978895" class="btn-location">Call us now</a>
+        </div>
       </div>
     </div>
-
-    <!-- Photo Gallery -->
-    <section class="gallery-section">
-      <div class="container">
-        <h2 class="section-title">Photos</h2>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="gallery-1.jpg" alt="Beijing Gourmet photo 1" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="gallery-2.jpg" alt="Beijing Gourmet photo 2" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="gallery-3.jpg" alt="Beijing Gourmet photo 3" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="gallery-4.jpg" alt="Beijing Gourmet photo 4" loading="lazy">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials-section">
-      <div class="container">
-        <h2 class="section-title">What Our Customers Say</h2>
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
-            <p class="testimonial-text">"Tasty buffet, with fresh food in abundance, in a spacious dining room. Can get crowded at peak times, but off-peak you'll still find the food fresh, hot, and well-cooked."</p>
-            <p class="testimonial-author">— Anthony D.</p>
-          </div>
-          <div class="testimonial-card">
-            <p class="testimonial-text">"Delicious oriental buffet, grill, and sushi. Attentive wait staff keeps the tables cleaned and drinks filled in between each visit to the multiple buffet lines. Sushi was amazing for a buffet. Pleasant atmosphere, good food, reasonable prices. What more could one want?"</p>
-            <p class="testimonial-author">— Gerald B.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <!-- ==============================
-       FOOTER
-       ============================== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
