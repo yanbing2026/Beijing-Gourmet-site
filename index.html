@@ -62,36 +62,62 @@
       <div class="container">
         <h2 class="section-title">Photos</h2>
         <div class="gallery-carousel" id="galleryCarousel">
-          <div class="gallery-track" id="galleryTrack">
-            <div class="gallery-slide">
-              <img src="gallery-1.jpg" alt="Beijing Gourmet interior" loading="lazy">
-              <div class="gallery-caption">Our dining room — warm and inviting</div>
-            </div>
-            <div class="gallery-slide">
-              <img src="gallery-2.jpg" alt="Beijing Gourmet dish" loading="lazy">
-              <div class="gallery-caption">Freshly prepared every day</div>
-            </div>
-            <div class="gallery-slide">
-              <img src="gallery-3.jpg" alt="Beijing Gourmet buffet" loading="lazy">
-              <div class="gallery-caption">All you can eat — variety at every visit</div>
-            </div>
-            <div class="gallery-slide">
-              <img src="gallery-4.jpg" alt="Beijing Gourmet dining" loading="lazy">
-              <div class="gallery-caption">Service with a smile</div>
+          <div class="gallery-viewport">
+            <div class="gallery-track" id="galleryTrack">
+              <div class="gallery-slide">
+                <div class="slide-inner">
+                  <img src="gallery-1.jpg" alt="Beijing Gourmet interior" loading="lazy">
+                </div>
+                <div class="slide-caption">
+                  <span class="caption-label">Dining Room</span>
+                  <p class="caption-text">Warm and inviting atmosphere for family meals</p>
+                </div>
+              </div>
+              <div class="gallery-slide">
+                <div class="slide-inner">
+                  <img src="gallery-2.jpg" alt="Beijing Gourmet dish" loading="lazy">
+                </div>
+                <div class="slide-caption">
+                  <span class="caption-label">Our Food</span>
+                  <p class="caption-text">Freshly prepared every single day</p>
+                </div>
+              </div>
+              <div class="gallery-slide">
+                <div class="slide-inner">
+                  <img src="gallery-3.jpg" alt="Beijing Gourmet buffet" loading="lazy">
+                </div>
+                <div class="slide-caption">
+                  <span class="caption-label">The Buffet</span>
+                  <p class="caption-text">All you can eat — variety at every visit</p>
+                </div>
+              </div>
+              <div class="gallery-slide">
+                <div class="slide-inner">
+                  <img src="gallery-4.jpg" alt="Beijing Gourmet dining" loading="lazy">
+                </div>
+                <div class="slide-caption">
+                  <span class="caption-label">Service</span>
+                  <p class="caption-text">Friendly service with a smile</p>
+                </div>
+              </div>
             </div>
           </div>
-          <button class="carousel-nav prev" id="galleryPrev" aria-label="Previous photo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+
+          <button class="carousel-btn carousel-btn-prev" id="galleryPrev" aria-label="Previous photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
           </button>
-          <button class="carousel-nav next" id="galleryNext" aria-label="Next photo">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          <button class="carousel-btn carousel-btn-next" id="galleryNext" aria-label="Next photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </button>
-          <button class="carousel-autoplay" id="galleryAutoplay" aria-label="Pause autoplay" title="Pause/Play">
-            <svg id="autoplayIcon" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+
+          <button class="carousel-autoplay" id="galleryAutoplay" aria-label="Pause slideshow" title="Pause / Play">
+            <svg id="autoplayIconPlay" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg>
+            <svg id="autoplayIconPause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
           </button>
+
+          <div class="carousel-dots" id="galleryDots"></div>
         </div>
-        <div class="carousel-dots" id="galleryDots"></div>
-        <p class="gallery-hint">Use the arrows to browse · Keyboard: ← → · Swipe on mobile</p>
+        <p class="gallery-hint">Swipe · ← → keys · auto-slides every 4 seconds</p>
       </div>
     </section>
 

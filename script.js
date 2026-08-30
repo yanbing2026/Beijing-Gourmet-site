@@ -129,7 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var prevBtn = document.getElementById('galleryPrev');
     var nextBtn = document.getElementById('galleryNext');
     var autoplayBtn = document.getElementById('galleryAutoplay');
-    var autoplayIcon = document.getElementById('autoplayIcon');
     var dotsContainer = document.getElementById('galleryDots');
 
     if (!track) return;
@@ -256,9 +255,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function startAutoplay() {
       if (autoplayInterval) return;
       isAutoplayPaused = false;
-      if (autoplayIcon) autoplayIcon.innerHTML = '<polygon points="5,3 19,12 5,21" fill="currentColor"/>';
-      if (autoplayBtn) autoplayBtn.classList.remove('paused');
-      if (autoplayBtn) autoplayBtn.setAttribute('aria-label', 'Pause autoplay');
+      if (autoplayBtn) autoplayBtn.classList.remove('is-paused');
+      if (autoplayBtn) autoplayBtn.setAttribute('aria-label', 'Pause slideshow');
       autoplayInterval = setInterval(function() {
         if (!isAutoplayPaused) {
           nextSlide();
@@ -272,9 +270,8 @@ document.addEventListener('DOMContentLoaded', function() {
         autoplayInterval = null;
       }
       isAutoplayPaused = true;
-      if (autoplayIcon) autoplayIcon.innerHTML = '<rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>';
-      if (autoplayBtn) autoplayBtn.classList.add('paused');
-      if (autoplayBtn) autoplayBtn.setAttribute('aria-label', 'Play autoplay');
+      if (autoplayBtn) autoplayBtn.classList.add('is-paused');
+      if (autoplayBtn) autoplayBtn.setAttribute('aria-label', 'Play slideshow');
     }
 
     function resetAutoplay() {
