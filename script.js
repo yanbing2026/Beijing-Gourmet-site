@@ -57,15 +57,15 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ==========================================
-  // Contact Form (prevent default, show message)
+  // Contact Form (submits to Google Forms via hidden iframe)
   // ==========================================
 
   const contactForm = document.querySelector('.contact-form');
-  if (contactForm) {
+  const hiddenIframe = document.getElementById('hidden_iframe');
+
+  if (contactForm && hiddenIframe) {
     contactForm.addEventListener('submit', function(e) {
-      const name = document.getElementById('contact-name').value.trim();
       const email = document.getElementById('contact-email').value.trim();
-      const message = document.getElementById('contact-message').value.trim();
 
       if (!email || !email.includes('@')) {
         e.preventDefault();
@@ -73,14 +73,20 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
 
-      e.preventDefault();
+      const btn = contactForm.querySelector('.btn-submit');
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
 
-      const subject = 'Website Contact from ' + (name || 'a customer');
-      const body = 'Name: ' + (name || 'N/A') + '\nEmail: ' + email + '\n\nMessage:\n' + (message || 'N/A');
-
-      window.location.href = 'mailto:beijinggourmettulsa@gmail.com' +
-        '?subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(body);
+      hiddenIframe.addEventListener('load', function onLoad() {
+        hiddenIframe.removeEventListener('load', onLoad);
+        btn.textContent = 'Message Sent';
+        contactForm.reset();
+        setTimeout(function() {
+          btn.textContent = originalText;
+          btn.disabled = false;
+        }, 2500);
+      });
     });
   }
 
