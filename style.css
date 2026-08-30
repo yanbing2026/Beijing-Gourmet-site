@@ -528,15 +528,6 @@ img {
   border-radius: 4px;
 }
 
-/* Hint text */
-.gallery-hint {
-  text-align: center;
-  margin-top: 6px;
-  font-size: 0.75rem;
-  color: var(--text-light);
-  letter-spacing: 0.5px;
-}
-
 /* ============================================
    Testimonials
    ============================================ */
