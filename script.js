@@ -328,30 +328,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
   })();
 
-  // ==========================================
-  // Google Maps — fallback static map if API key missing
-  // ==========================================
-
-  const mapContainer = document.getElementById('map');
-  if (mapContainer) {
-    // Check if Google Maps API loaded properly
-    // If not, show a static map image as fallback
-    window.addEventListener('load', function() {
-      if (typeof google === 'undefined' || !google.maps || typeof initMap !== 'function') {
-        // Replace map container with a static map image
-        const staticMapUrl =
-          'https://maps.googleapis.com/maps/api/staticmap?' +
-          'center=8228+East+61st+Street,Tulsa,OK+74133&' +
-          'zoom=15&size=600x400&scale=2&markers=color:red|8228+East+61st+Street,Tulsa,OK+74133&' +
-          'style=feature:road|element:geometry|visibility:off&' +
-          'style=feature:landscape|element:geometry.fill|color:0xededed&' +
-          'style=feature:water|element:geometry|color:0xc9c9c9';
-
-        mapContainer.innerHTML =
-          '<img src="' + staticMapUrl + '" alt="Map to Beijing Gourmet — 8228 East 61st Street, Tulsa, OK 74133" ' +
-          'style="width:100%;height:400px;object-fit:cover;border-radius:16px;">';
-      }
-    });
-  }
-
 });
