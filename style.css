@@ -595,7 +595,7 @@ img {
    ============================================ */
 
 .page-location {
-  padding: 56px 0 80px;
+  padding: 112px 0 80px;
   background: var(--bg);
 }
 
@@ -749,7 +749,7 @@ img {
    ============================================ */
 
 .page-contact {
-  padding: 56px 0 80px;
+  padding: 112px 0 80px;
   background: var(--bg);
 }
 
@@ -842,7 +842,7 @@ img {
    ============================================ */
 
 .page-faq {
-  padding: 56px 0 80px;
+  padding: 112px 0 80px;
   background: var(--bg);
 }
 
@@ -910,7 +910,7 @@ img {
    ============================================ */
 
 .page-prices {
-  padding: 56px 0 80px;
+  padding: 112px 0 80px;
   background: var(--bg);
 }
 
@@ -1272,12 +1272,27 @@ img {
     min-height: 70vh;
   }
 
+  .hero-content {
+    padding: 36px 24px;
+  }
+
   .hero-title {
-    font-size: clamp(1.6rem, 8vw, 2.2rem);
+    font-size: clamp(1.15rem, 5.5vw, 1.5rem);
+    margin-bottom: 18px;
+  }
+
+  .hero-title::before {
+    margin-bottom: 16px;
   }
 
   .hero-text {
-    font-size: 1rem;
+    font-size: 0.92rem;
+    margin-bottom: 24px;
+  }
+
+  .btn-hero {
+    padding: 13px 32px;
+    font-size: 0.82rem;
   }
 
   .gallery-section {
