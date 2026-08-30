@@ -121,6 +121,217 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ==========================================
+  // Photo Gallery Carousel
+  // ==========================================
+
+  (function() {
+    var track = document.getElementById('galleryTrack');
+    var prevBtn = document.getElementById('galleryPrev');
+    var nextBtn = document.getElementById('galleryNext');
+    var autoplayBtn = document.getElementById('galleryAutoplay');
+    var autoplayIcon = document.getElementById('autoplayIcon');
+    var dotsContainer = document.getElementById('galleryDots');
+
+    if (!track) return;
+
+    var slides = track.querySelectorAll('.gallery-slide');
+    var totalSlides = slides.length;
+    var currentIndex = 0;
+    var autoplayInterval = null;
+    var autoplayDelay = 4000; // ms
+    var isAutoplayPaused = false;
+    var isTransitioning = false;
+
+    // Touch / swipe state
+    var touchStartX = 0;
+    var touchEndX = 0;
+    var minSwipeDistance = 50;
+
+    // Build dots
+    for (var i = 0; i < totalSlides; i++) {
+      (function(idx) {
+        var dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to photo ' + (idx + 1) + ' of ' + totalSlides);
+        dot.setAttribute('data-index', idx);
+        dot.addEventListener('click', function() {
+          goToSlide(idx);
+          resetAutoplay();
+        });
+        dotsContainer.appendChild(dot);
+      })(i);
+    }
+
+    var dots = dotsContainer ? dotsContainer.querySelectorAll('.carousel-dot') : [];
+
+    function updateDots() {
+      for (var i = 0; i < dots.length; i++) {
+        dots[i].className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+      }
+    }
+
+    function goToSlide(index) {
+      if (isTransitioning) return;
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      if (index === currentIndex) return;
+
+      isTransitioning = true;
+      currentIndex = index;
+      track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+      updateDots();
+
+      // Trigger transition end
+      var onEnd = function() {
+        isTransitioning = false;
+        track.removeEventListener('transitionend', onEnd);
+      };
+      track.addEventListener('transitionend', onEnd);
+
+      // Fallback: clear transitioning flag after animation completes
+      setTimeout(function() {
+        isTransitioning = false;
+      }, 550);
+    }
+
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentIndex - 1);
+    }
+
+    prevBtn.addEventListener('click', function() {
+      prevSlide();
+      resetAutoplay();
+    });
+
+    nextBtn.addEventListener('click', function() {
+      nextSlide();
+      resetAutoplay();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      // Only when carousel is in view
+      var carousel = document.getElementById('galleryCarousel');
+      if (!carousel) return;
+      var rect = carousel.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        if (e.key === 'ArrowLeft') {
+          prevSlide();
+          resetAutoplay();
+          e.preventDefault();
+        } else if (e.key === 'ArrowRight') {
+          nextSlide();
+          resetAutoplay();
+          e.preventDefault();
+        }
+      }
+    });
+
+    // Touch / swipe support
+    var carouselEl = document.getElementById('galleryCarousel');
+    if (carouselEl && 'ontouchstart' in window) {
+      carouselEl.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      carouselEl.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        var diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > minSwipeDistance) {
+          if (diff > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+          resetAutoplay();
+        }
+      }, { passive: true });
+    }
+
+    // Autoplay
+    function startAutoplay() {
+      if (autoplayInterval) return;
+      isAutoplayPaused = false;
+      if (autoplayIcon) autoplayIcon.innerHTML = '<polygon points="5,3 19,12 5,21" fill="currentColor"/>';
+      if (autoplayBtn) autoplayBtn.classList.remove('paused');
+      if (autoplayBtn) autoplayBtn.setAttribute('aria-label', 'Pause autoplay');
+      autoplayInterval = setInterval(function() {
+        if (!isAutoplayPaused) {
+          nextSlide();
+        }
+      }, autoplayDelay);
+    }
+
+    function stopAutoplay() {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+      }
+      isAutoplayPaused = true;
+      if (autoplayIcon) autoplayIcon.innerHTML = '<rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>';
+      if (autoplayBtn) autoplayBtn.classList.add('paused');
+      if (autoplayBtn) autoplayBtn.setAttribute('aria-label', 'Play autoplay');
+    }
+
+    function resetAutoplay() {
+      if (isAutoplayPaused) return;
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    if (autoplayBtn) {
+      autoplayBtn.addEventListener('click', function() {
+        if (isAutoplayPaused) {
+          startAutoplay();
+        } else {
+          stopAutoplay();
+        }
+      });
+    }
+
+    // Pause on hover / focus
+    if (carouselEl) {
+      carouselEl.addEventListener('mouseenter', function() {
+        if (!isAutoplayPaused) {
+          stopAutoplay();
+        }
+      });
+      carouselEl.addEventListener('mouseleave', function() {
+        if (!isAutoplayPaused) {
+          startAutoplay();
+        }
+      });
+      carouselEl.addEventListener('focusin', function() {
+        if (!isAutoplayPaused) {
+          stopAutoplay();
+        }
+      });
+      carouselEl.addEventListener('focusout', function() {
+        if (!isAutoplayPaused) {
+          startAutoplay();
+        }
+      });
+    }
+
+    // Start autoplay
+    startAutoplay();
+
+    // Pause when tab is hidden
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        stopAutoplay();
+      } else if (!isAutoplayPaused) {
+        startAutoplay();
+      }
+    });
+
+  })();
+
+  // ==========================================
   // Google Maps — fallback static map if API key missing
   // ==========================================
 

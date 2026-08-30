@@ -61,20 +61,37 @@
     <section class="gallery-section">
       <div class="container">
         <h2 class="section-title">Photos</h2>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="gallery-1.jpg" alt="Beijing Gourmet photo 1" loading="lazy">
+        <div class="gallery-carousel" id="galleryCarousel">
+          <div class="gallery-track" id="galleryTrack">
+            <div class="gallery-slide">
+              <img src="gallery-1.jpg" alt="Beijing Gourmet interior" loading="lazy">
+              <div class="gallery-caption">Our dining room — warm and inviting</div>
+            </div>
+            <div class="gallery-slide">
+              <img src="gallery-2.jpg" alt="Beijing Gourmet dish" loading="lazy">
+              <div class="gallery-caption">Freshly prepared every day</div>
+            </div>
+            <div class="gallery-slide">
+              <img src="gallery-3.jpg" alt="Beijing Gourmet buffet" loading="lazy">
+              <div class="gallery-caption">All you can eat — variety at every visit</div>
+            </div>
+            <div class="gallery-slide">
+              <img src="gallery-4.jpg" alt="Beijing Gourmet dining" loading="lazy">
+              <div class="gallery-caption">Service with a smile</div>
+            </div>
           </div>
-          <div class="gallery-item">
-            <img src="gallery-2.jpg" alt="Beijing Gourmet photo 2" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="gallery-3.jpg" alt="Beijing Gourmet photo 3" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="gallery-4.jpg" alt="Beijing Gourmet photo 4" loading="lazy">
-          </div>
+          <button class="carousel-nav prev" id="galleryPrev" aria-label="Previous photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="carousel-nav next" id="galleryNext" aria-label="Next photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <button class="carousel-autoplay" id="galleryAutoplay" aria-label="Pause autoplay" title="Pause/Play">
+            <svg id="autoplayIcon" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+          </button>
         </div>
+        <div class="carousel-dots" id="galleryDots"></div>
+        <p class="gallery-hint">Use the arrows to browse · Keyboard: ← → · Swipe on mobile</p>
       </div>
     </section>
 
