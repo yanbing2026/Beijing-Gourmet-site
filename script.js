@@ -63,25 +63,24 @@ document.addEventListener('DOMContentLoaded', function() {
   const contactForm = document.querySelector('.contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
+      const name = document.getElementById('contact-name').value.trim();
       const email = document.getElementById('contact-email').value.trim();
+      const message = document.getElementById('contact-message').value.trim();
 
       if (!email || !email.includes('@')) {
+        e.preventDefault();
         alert('Please enter a valid email address.');
         return;
       }
 
-      const btn = contactForm.querySelector('.btn-submit');
-      const originalText = btn.textContent;
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
+      e.preventDefault();
 
-      setTimeout(function() {
-        alert('Thank you! We\'ll get back to you at ' + email + ' soon.');
-        btn.textContent = originalText;
-        btn.disabled = false;
-        contactForm.reset();
-      }, 600);
+      const subject = 'Website Contact from ' + (name || 'a customer');
+      const body = 'Name: ' + (name || 'N/A') + '\nEmail: ' + email + '\n\nMessage:\n' + (message || 'N/A');
+
+      window.location.href = 'mailto:beijinggourmettulsa@gmail.com' +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
     });
   }
 
