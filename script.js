@@ -322,6 +322,194 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start autoplay
     startAutoplay();
 
+    // ==========================================
+    // Testimonials Carousel
+    // ==========================================
+    (function() {
+      var carouselEl = document.getElementById('testimonialsCarousel');
+      var track = document.getElementById('testiTrack');
+      var prevBtn = document.getElementById('testiPrev');
+      var nextBtn = document.getElementById('testiNext');
+      var autoplayBtn = document.getElementById('testiAutoplay');
+      var dotsContainer = document.getElementById('testiDots');
+      var slides = track ? track.querySelectorAll('.testi-slide') : [];
+
+      if (!track || slides.length === 0) return;
+
+      var currentIndex = 0;
+      var slideCount = slides.length;
+      var autoplayDelay = 6000;
+      var autoplayInterval = null;
+      var isAutoplayPaused = false;
+      var isDragging = false;
+      var startX = 0;
+      var dragDelta = 0;
+
+      function goToSlide(index) {
+        if (isDragging) return;
+        if (index < 0) index = slideCount - 1;
+        if (index >= slideCount) index = 0;
+        currentIndex = index;
+        track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+        updateDots();
+      }
+
+      function nextSlide() { goToSlide(currentIndex + 1); }
+      function prevSlide() { goToSlide(currentIndex - 1); }
+
+      function buildDots() {
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        for (var i = 0; i < slideCount; i++) {
+          (function(i) {
+            var dot = document.createElement('button');
+            dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
+            dot.addEventListener('click', function() {
+              goToSlide(i);
+              if (isAutoplayPaused) {
+                isAutoplayPaused = false;
+                if (autoplayBtn) autoplayBtn.classList.remove('is-paused');
+                if (autoplayBtn) autoplayBtn.setAttribute('aria-label', 'Pause slideshow');
+                startAutoplay();
+              }
+            });
+            dotsContainer.appendChild(dot);
+          })(i);
+        }
+      }
+
+      function updateDots() {
+        if (!dotsContainer) return;
+        var dots = dotsContainer.querySelectorAll('.testi-dot');
+        for (var i = 0; i < dots.length; i++) {
+          dots[i].classList.toggle('active', i === currentIndex);
+        }
+      }
+
+      if (prevBtn) prevBtn.addEventListener('click', function() {
+        prevSlide();
+        if (isAutoplayPaused) {
+          isAutoplayPaused = false;
+          if (autoplayBtn) autoplayBtn.classList.remove('is-paused');
+          if (autoplayBtn) autoplayBtn.setAttribute('aria-label', 'Pause slideshow');
+          startAutoplay();
+        }
+      });
+
+      if (nextBtn) nextBtn.addEventListener('click', function() {
+        nextSlide();
+        if (isAutoplayPaused) {
+          isAutoplayPaused = false;
+          if (autoplayBtn) autoplayBtn.classList.remove('is-paused');
+          if (autoplayBtn) autoplayBtn.setAttribute('aria-label', 'Pause slideshow');
+          startAutoplay();
+        }
+      });
+
+      function startAutoplay() {
+        if (autoplayInterval) return;
+        isAutoplayPaused = false;
+        if (autoplayBtn) autoplayBtn.classList.remove('is-paused');
+        if (autoplayBtn) autoplayBtn.setAttribute('aria-label', 'Pause slideshow');
+        autoplayInterval = setInterval(function() {
+          if (!isAutoplayPaused) nextSlide();
+        }, autoplayDelay);
+      }
+
+      function stopAutoplay() {
+        if (autoplayInterval) {
+          clearInterval(autoplayInterval);
+          autoplayInterval = null;
+        }
+        isAutoplayPaused = true;
+        if (autoplayBtn) autoplayBtn.classList.add('is-paused');
+        if (autoplayBtn) autoplayBtn.setAttribute('aria-label', 'Play slideshow');
+      }
+
+      if (carouselEl) {
+        carouselEl.addEventListener('mouseenter', function() {
+          if (!isAutoplayPaused) stopAutoplay();
+        });
+        carouselEl.addEventListener('mouseleave', function() {
+          if (!isAutoplayPaused) startAutoplay();
+        });
+        carouselEl.addEventListener('focusin', function() {
+          if (!isAutoplayPaused) stopAutoplay();
+        });
+        carouselEl.addEventListener('focusout', function() {
+          if (!isAutoplayPaused) startAutoplay();
+        });
+      }
+
+      if (carouselEl) {
+        carouselEl.addEventListener('touchstart', function(e) {
+          if (isAutoplayPaused) {
+            isAutoplayPaused = false;
+            if (autoplayBtn) autoplayBtn.classList.remove('is-paused');
+            if (autoplayBtn) autoplayBtn.setAttribute('aria-label', 'Pause slideshow');
+            startAutoplay();
+          }
+          isDragging = true;
+          startX = e.touches[0].clientX;
+          dragDelta = 0;
+          if (autoplayInterval) { clearInterval(autoplayInterval); autoplayInterval = null; }
+        }, { passive: true });
+
+        carouselEl.addEventListener('touchmove', function(e) {
+          if (!isDragging) return;
+          dragDelta = e.touches[0].clientX - startX;
+          var offset = -currentIndex * 100 + (dragDelta / carouselEl.offsetWidth) * 100;
+          track.style.transform = 'translateX(' + offset + '%)';
+        }, { passive: true });
+
+        carouselEl.addEventListener('touchend', function() {
+          if (!isDragging) return;
+          isDragging = false;
+          if (Math.abs(dragDelta) > carouselEl.offsetWidth * 0.15) {
+            if (dragDelta < 0) nextSlide();
+            else prevSlide();
+          } else {
+            goToSlide(currentIndex);
+          }
+          autoplayInterval = setInterval(function() {
+            if (!isAutoplayPaused) nextSlide();
+          }, autoplayDelay);
+        });
+      }
+
+      if (carouselEl && carouselEl.offsetParent !== null) {
+        document.addEventListener('keydown', function(e) {
+          if (!carouselEl.contains(document.activeElement) &&
+              !carouselEl.matches(':hover') &&
+              !document.querySelector('.testi-viewport:hover')) {
+            return;
+          }
+          if (e.key === 'ArrowLeft') {
+            prevSlide();
+            if (isAutoplayPaused) {
+              isAutoplayPaused = false;
+              if (autoplayBtn) autoplayBtn.classList.remove('is-paused');
+              if (autoplayBtn) autoplayBtn.setAttribute('aria-label', 'Pause slideshow');
+              startAutoplay();
+            }
+          } else if (e.key === 'ArrowRight') {
+            nextSlide();
+            if (isAutoplayPaused) {
+              isAutoplayPaused = false;
+              if (autoplayBtn) autoplayBtn.classList.remove('is-paused');
+              if (autoplayBtn) autoplayBtn.setAttribute('aria-label', 'Pause slideshow');
+              startAutoplay();
+            }
+          }
+        });
+      }
+
+      buildDots();
+      goToSlide(0);
+      startAutoplay();
+    })();
+
     // Pause when tab is hidden
     document.addEventListener('visibilitychange', function() {
       if (document.hidden) {

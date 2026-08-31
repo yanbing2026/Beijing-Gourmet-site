@@ -121,19 +121,52 @@
     </section>
 
     <!-- Testimonials -->
+    <!-- Testimonials Carousel -->
     <section class="testimonials-section">
       <div class="container">
         <h2 class="section-title">What Our Customers Say</h2>
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
-            <p class="testimonial-text">"Tasty buffet, with fresh food in abundance, in a spacious dining room. Can get crowded at peak times, but off-peak you'll still find the food fresh, hot, and well-cooked."</p>
-            <p class="testimonial-author">— Anthony D.</p>
+        <div class="testimonials-carousel" id="testimonialsCarousel">
+          <div class="testi-viewport">
+            <div class="testi-track" id="testiTrack">
+
+              <div class="testi-slide">
+                <div class="testi-slide-inner">
+                  <div class="testi-quote-mark">&ldquo;</div>
+                  <p class="testi-text">Tasty buffet, with fresh food in abundance, in a spacious dining room. Can get crowded at peak times, but off-peak you&rsquo;ll still find the food fresh, hot, and well-cooked.</p>
+                </div>
+                <div class="testi-author">
+                  <span class="testi-author-label">— Anthony D.</span>
+                </div>
+              </div>
+
+              <div class="testi-slide">
+                <div class="testi-slide-inner">
+                  <div class="testi-quote-mark">&ldquo;</div>
+                  <p class="testi-text">Delicious oriental buffet, grill, and sushi. Attentive wait staff keeps the tables cleaned and drinks filled in between each visit to the multiple buffet lines. Sushi was amazing for a buffet. Pleasant atmosphere, good food, reasonable prices. What more could one want?</p>
+                </div>
+                <div class="testi-author">
+                  <span class="testi-author-label">— Gerald B.</span>
+                </div>
+              </div>
+
+            </div>
           </div>
-          <div class="testimonial-card">
-            <p class="testimonial-text">"Delicious oriental buffet, grill, and sushi. Attentive wait staff keeps the tables cleaned and drinks filled in between each visit to the multiple buffet lines. Sushi was amazing for a buffet. Pleasant atmosphere, good food, reasonable prices. What more could one want?"</p>
-            <p class="testimonial-author">— Gerald B.</p>
-          </div>
+
+          <button class="testi-btn testi-btn-prev" id="testiPrev" aria-label="Previous review">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="testi-btn testi-btn-next" id="testiNext" aria-label="Next review">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+
+          <button class="testi-autoplay" id="testiAutoplay" aria-label="Pause slideshow" title="Pause / Play">
+            <svg id="testiAutoplayIconPlay" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg>
+            <svg id="testiAutoplayIconPause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+          </button>
+
+          <div class="testi-dots" id="testiDots"></div>
         </div>
+        <p class="testi-hint">Swipe · ← → keys · auto-slides every 6 seconds</p>
       </div>
     </section>
 
