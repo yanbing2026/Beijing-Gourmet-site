@@ -177,11 +177,15 @@ img {
 .nav-toggle {
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 5px;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .nav-toggle span {
@@ -508,8 +512,8 @@ img {
 }
 
 .carousel-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   border: none;
   background: rgba(255,255,255,0.3);
@@ -526,6 +530,21 @@ img {
   background: var(--primary);
   width: 28px;
   border-radius: 4px;
+}
+
+/* Enlarge the tap area vertically; the dot itself stays small */
+.carousel-dot {
+  position: relative;
+}
+
+.carousel-dot::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 30px;
 }
 
 /* ============================================
@@ -750,8 +769,8 @@ img {
 }
 
 .testi-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   border: none;
   background: rgba(255,255,255,0.3);
@@ -768,6 +787,20 @@ img {
   background: var(--primary);
   width: 24px;
   border-radius: 4px;
+}
+
+.testi-dot {
+  position: relative;
+}
+
+.testi-dot::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 30px;
 }
 
 /* ============================================
@@ -1134,7 +1167,7 @@ img {
 }
 
 .faq-answer {
-  font-size: 0.93rem;
+  font-size: 1.02rem;
   color: var(--text-muted);
   line-height: 1.7;
 }
@@ -1225,7 +1258,8 @@ img {
 }
 
 .price-row-soft {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
+  line-height: 1.7;
   color: var(--text-muted);
   padding-bottom: 8px;
   border-bottom: 1px dotted var(--border);
@@ -1249,6 +1283,43 @@ img {
   font-weight: 700;
   font-size: 1rem;
   color: var(--secondary-dark);
+}
+
+/* Buffet-to-go prices: stacked so they never break mid-phrase */
+.price-value-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.price-sub {
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.price-sub strong {
+  font-weight: 700;
+  color: var(--secondary-dark);
+}
+
+/* Drinks: comma soup -> discrete items that wrap cleanly */
+.drink-list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 3px;
+}
+
+.drink-item {
+  white-space: nowrap;
+}
+
+.drink-item:not(:last-child)::after {
+  content: '\00b7';
+  padding: 0 8px;
+  color: var(--text-light);
 }
 
 .price-note {
@@ -1309,7 +1380,7 @@ img {
 }
 
 .footer-address {
-  font-size: 0.88rem;
+  font-size: 0.94rem;
   color: rgba(255,255,255,0.6);
   margin-bottom: 12px;
   line-height: 1.6;
@@ -1362,7 +1433,7 @@ img {
 }
 
 .footer-links a {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: rgba(255,255,255,0.7);
   transition: color 0.3s;
 }
@@ -1400,7 +1471,7 @@ img {
 }
 
 .footer-social-note {
-  font-size: 0.82rem;
+  font-size: 0.86rem;
   color: rgba(255,255,255,0.5);
   margin-top: 12px;
 }
@@ -1409,7 +1480,7 @@ img {
   border-top: 1px solid rgba(255,185,15,0.15);
   padding-top: 20px;
   text-align: center;
-  font-size: 0.82rem;
+  font-size: 0.86rem;
   color: rgba(255,255,255,0.4);
 }
 
@@ -1531,7 +1602,7 @@ img {
   }
 
   .hero-text {
-    font-size: 0.92rem;
+    font-size: 1rem;
     margin-bottom: 24px;
   }
 
@@ -1550,8 +1621,8 @@ img {
   }
 
   .carousel-btn {
-    width: 42px;
-    height: 42px;
+    width: 46px;
+    height: 46px;
   }
 
   .carousel-btn svg {
@@ -1570,8 +1641,8 @@ img {
   .carousel-autoplay {
     top: 10px;
     right: 10px;
-    width: 34px;
-    height: 34px;
+    width: 44px;
+    height: 44px;
   }
 
   .carousel-autoplay svg {
@@ -1596,6 +1667,16 @@ img {
     padding: 0 0 16px 0;
     gap: 8px;
   }
+
+  /* footer links were 19px tall — too small to tap */
+  .footer-links a {
+    display: inline-block;
+    padding: 10px 0;
+  }
+
+  .footer-links ul {
+    gap: 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1604,13 +1685,13 @@ img {
   }
 
   .carousel-btn {
-    width: 36px;
-    height: 36px;
+    width: 46px;
+    height: 46px;
   }
 
   .carousel-btn svg {
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
   }
 
   .carousel-btn-prev {
@@ -1622,8 +1703,8 @@ img {
   }
 
   .carousel-autoplay {
-    width: 30px;
-    height: 30px;
+    width: 44px;
+    height: 44px;
     top: 8px;
     right: 8px;
   }
@@ -1636,4 +1717,18 @@ img {
   .slide-inner img {
     transition: none;
   }
+}
+
+/* ============================================
+   Keyboard focus — always visible
+   ============================================ */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+iframe:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 3px;
 }
