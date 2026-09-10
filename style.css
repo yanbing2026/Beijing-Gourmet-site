@@ -770,15 +770,6 @@ img {
   border-radius: 4px;
 }
 
-/* Hint text */
-.testi-hint {
-  text-align: center;
-  margin-top: 4px;
-  font-size: 0.75rem;
-  color: var(--text-light);
-  letter-spacing: 0.5px;
-}
-
 /* ============================================
    Location Page
    ============================================ */
@@ -1024,6 +1015,71 @@ img {
 .btn-submit:hover {
   background: #96201f;
   transform: translateY(-2px);
+}
+
+.btn-submit:disabled {
+  opacity: 0.65;
+  cursor: default;
+  transform: none;
+}
+
+/* Honeypot field: invisible to people, tempting to bots */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Inline submission feedback */
+.form-status {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.form-status-success,
+.form-status-error {
+  padding: 13px 16px;
+  border-radius: var(--radius);
+  border-left: 3px solid;
+  margin: 0 0 18px;
+}
+
+.form-status-success {
+  color: #1d7a3c;
+  background: #eaf7ee;
+  border-left-color: #1d7a3c;
+}
+
+.form-status-error {
+  color: #a41f1f;
+  background: #fdecec;
+  border-left-color: #a41f1f;
+}
+
+/* Phone / email fallback under the form */
+.form-alt {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.form-alt a {
+  color: var(--secondary-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.form-alt a:hover {
+  text-decoration: underline;
 }
 
 /* ============================================

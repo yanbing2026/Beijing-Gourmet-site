@@ -57,36 +57,66 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ==========================================
-  // Contact Form (submits to Google Forms via hidden iframe)
+  // Contact Form (posts to Web3Forms)
   // ==========================================
 
-  const contactForm = document.querySelector('.contact-form');
-  const hiddenIframe = document.getElementById('hidden_iframe');
+  const contactForm = document.getElementById('contactForm');
 
-  if (contactForm && hiddenIframe) {
-    contactForm.addEventListener('submit', function(e) {
+  if (contactForm) {
+    const statusEl = document.getElementById('formStatus');
+    const submitBtn = contactForm.querySelector('.btn-submit');
+    const btnLabel = submitBtn ? submitBtn.textContent : 'Send Message';
+
+    const showStatus = function (message, kind) {
+      statusEl.textContent = message;
+      statusEl.className = 'form-status' + (kind ? ' form-status-' + kind : '');
+    };
+
+    contactForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
       const email = document.getElementById('contact-email').value.trim();
-
       if (!email || !email.includes('@')) {
-        e.preventDefault();
-        alert('Please enter a valid email address.');
+        showStatus('Please enter a valid email address.', 'error');
         return;
       }
 
-      const btn = contactForm.querySelector('.btn-submit');
-      const originalText = btn.textContent;
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
+      // honeypot tripped => silently drop
+      if (contactForm.botcheck && contactForm.botcheck.checked) {
+        return;
+      }
 
-      hiddenIframe.addEventListener('load', function onLoad() {
-        hiddenIframe.removeEventListener('load', onLoad);
-        btn.textContent = 'Message Sent';
-        contactForm.reset();
-        setTimeout(function() {
-          btn.textContent = originalText;
-          btn.disabled = false;
-        }, 2500);
-      });
+      const keyInput = contactForm.querySelector('input[name="access_key"]');
+      if (!keyInput || !keyInput.value || keyInput.value.indexOf('YOUR_') === 0) {
+        showStatus('This form is not connected yet. Please call us at (918) 297-8895.', 'error');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      showStatus('', '');
+
+      try {
+        const payload = Object.fromEntries(new FormData(contactForm));
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          contactForm.reset();
+          showStatus("Thank you — your message is on its way. We'll get back to you soon.", 'success');
+        } else {
+          throw new Error(result.message || 'Submission rejected');
+        }
+      } catch (err) {
+        showStatus('Sorry, something went wrong sending that. Please call us at (918) 297-8895 or email beijinggourmettulsa@gmail.com.', 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = btnLabel;
+      }
     });
   }
 
