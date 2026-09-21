@@ -76,6 +76,25 @@
     .redesigned-home .hero-actions .secondary{background:#fff;color:#1b1512}
     .redesigned-home .hero-actions .secondary:hover{background:#f6c453;transform:translateY(-2px)}
     .redesigned-home .hero-note{margin-top:18px;color:rgba(255,255,255,.7);font-size:.88rem}
+
+    .home-quickbar{background:#b82025;color:#fff;position:relative;z-index:5;box-shadow:0 5px 18px rgba(42,26,20,.14)}
+    .home-quickbar-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.15fr 1fr 1fr;align-items:stretch}
+    .home-quickbar-item{min-height:78px;padding:14px 22px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,.2)}
+    .home-quickbar-item:last-child{border-right:0}
+    .home-quickbar-item small{font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;opacity:.8;font-weight:700}
+    .home-quickbar-item strong{font-size:1.12rem;margin-top:3px}
+    .home-quickbar-item span{font-size:.84rem;opacity:.9;margin-top:2px}
+    .home-quickbar-item a{color:#fff;text-decoration:none}
+    .home-quickbar-item.action{background:#8f181d;text-align:center;align-items:center}
+    .home-quickbar-item.action a{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.65);min-height:42px;padding:0 20px;font-weight:700}
+    .home-quickbar-item.action a:hover{background:#fff;color:#8f181d}
+    @media(max-width:768px){
+      .home-quickbar-inner{grid-template-columns:1fr 1fr}
+      .home-quickbar-item{min-height:72px;padding:12px 14px}
+      .home-quickbar-item:first-child{grid-column:1/-1;text-align:center;align-items:center;border-right:0;border-bottom:1px solid rgba(255,255,255,.2)}
+      .home-quickbar-item.action{border-right:0}
+      .home-quickbar-item strong{font-size:1rem}
+    }
     .home-strip{background:#fff;border-bottom:1px solid #e8dfd4}
     .home-strip-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr)}
     .home-strip-item{padding:22px 28px;text-align:center;border-right:1px solid #e8dfd4}
@@ -191,6 +210,24 @@
       <p class="hero-note">8228 East 61st Street • Tulsa, OK 74133 • (918) 297-8895</p>
     </div>
   </section>
+
+  <div class="home-quickbar" aria-label="Today at Beijing Gourmet">
+    <div class="home-quickbar-inner">
+      <div class="home-quickbar-item">
+        <small>Today</small>
+        <strong>Open 11:00 AM – 8:30 PM</strong>
+        <span>Kitchen, sushi bar &amp; Mongolian Grill close 30 min before.</span>
+      </div>
+      <div class="home-quickbar-item">
+        <small>Buffet</small>
+        <strong>Lunch from $13.79</strong>
+        <span>Adult • 11:00 AM – 4:00 PM</span>
+      </div>
+      <div class="home-quickbar-item action">
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=8228+East+61st+Street,+Tulsa,+OK+74133" rel="noopener">Get Directions →</a>
+      </div>
+    </div>
+  </div>
 
   <div class="home-strip">
     <div class="home-strip-inner">
