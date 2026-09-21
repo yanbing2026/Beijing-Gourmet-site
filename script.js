@@ -328,24 +328,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Pause on hover / focus
     if (carouselEl) {
       carouselEl.addEventListener('mouseenter', function() {
-        if (!isAutoplayPaused) {
-          stopAutoplay();
+        if (!isAutoplayPaused && autoplayInterval) {
+          clearInterval(autoplayInterval);
+          autoplayInterval = null;
         }
       });
       carouselEl.addEventListener('mouseleave', function() {
-        if (!isAutoplayPaused) {
-          startAutoplay();
-        }
+        if (!isAutoplayPaused) startAutoplay();
       });
       carouselEl.addEventListener('focusin', function() {
-        if (!isAutoplayPaused) {
-          stopAutoplay();
+        if (!isAutoplayPaused && autoplayInterval) {
+          clearInterval(autoplayInterval);
+          autoplayInterval = null;
         }
       });
       carouselEl.addEventListener('focusout', function() {
-        if (!isAutoplayPaused) {
-          startAutoplay();
-        }
+        if (!isAutoplayPaused) startAutoplay();
       });
     }
 
@@ -459,13 +457,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (carouselEl) {
         carouselEl.addEventListener('mouseenter', function() {
-          if (!isAutoplayPaused) stopAutoplay();
+          if (!isAutoplayPaused && autoplayInterval) {
+            clearInterval(autoplayInterval);
+            autoplayInterval = null;
+          }
         });
         carouselEl.addEventListener('mouseleave', function() {
           if (!isAutoplayPaused) startAutoplay();
         });
         carouselEl.addEventListener('focusin', function() {
-          if (!isAutoplayPaused) stopAutoplay();
+          if (!isAutoplayPaused && autoplayInterval) {
+            clearInterval(autoplayInterval);
+            autoplayInterval = null;
+          }
         });
         carouselEl.addEventListener('focusout', function() {
           if (!isAutoplayPaused) startAutoplay();
@@ -543,7 +547,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Pause when tab is hidden
     document.addEventListener('visibilitychange', function() {
       if (document.hidden) {
-        stopAutoplay();
+        if (autoplayInterval) {
+          clearInterval(autoplayInterval);
+          autoplayInterval = null;
+        }
       } else if (!isAutoplayPaused) {
         startAutoplay();
       }
